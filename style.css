@@ -4,7 +4,7 @@ body {
     font-family: 'Expletus Sans', cursive;
 }
 
-.navbar{
+.navbar {
     font-weight: 600;
 }
 
@@ -16,9 +16,17 @@ body {
     font-size: 20px;
 }
 
-.text-shadow-1 { text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25); }
-.text-shadow-2 { text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25); }
-.text-shadow-3 { text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25); }
+.text-shadow-1 {
+    text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25);
+}
+
+.text-shadow-2 {
+    text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25);
+}
+
+.text-shadow-3 {
+    text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25);
+}
 
 .card-cover {
     background-repeat: no-repeat;
@@ -31,26 +39,29 @@ body {
     height: 3rem;
 }
 
-#CafeFeatured{
+#CafeFeatured {
     font-family: 'Expletus Sans', sans-serif;
     font-size: 25px;
     font-weight: 600;
 }
 
 #card-cafe {
-    background-image: url('https://source.unsplash.com/random/?cafe');
-    // Add gradient to cover
-    background-image: backgroundImage:linear-gradient(rgba(0, 0, 0, 1),rgba(0, 0, 0, 1),rgba(0, 0, 0, 1),rgba(0, 0, 0, 1)), url('https://source.unsplash.com/random/?cafe');
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 60%), url(https://source.unsplash.com/random/?cafe,jakarta);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
 #card-cafe2 {
-    background-image: url('https://source.unsplash.com/random/?cafe,night');
-// Add gradient to cover
-background-image: backgroundImage:linear-gradient(rgba(0, 0, 0, 1),rgba(0, 0, 0, 1),rgba(0, 0, 0, 1),rgba(0, 0, 0, 1)), url('https://source.unsplash.com/random/?cafe');
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 60%), url(https://source.unsplash.com/random/?cafe,bandung);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
 #card-cafe3 {
-    background-image: url('https://source.unsplash.com/random/?cafe,indonesia');
-// Add gradient to cover
-background-image: backgroundImage:linear-gradient(rgba(0, 0, 0, 1),rgba(0, 0, 0, 1),rgba(0, 0, 0, 1),rgba(0, 0, 0, 1)), url('https://source.unsplash.com/random/?cafe');
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 60%), url(https://source.unsplash.com/random/?cafe,indonesia);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
