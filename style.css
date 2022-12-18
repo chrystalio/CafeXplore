@@ -46,22 +46,13 @@ body {
 }
 
 #card-cafe {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 60%), url(https://source.unsplash.com/random/?cafe,jakarta);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 60%), url('https://source.unsplash.com/random/?kopi');
 }
 
 #card-cafe2 {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 60%), url(https://source.unsplash.com/random/?cafe,bandung);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 60%), url('https://source.unsplash.com/random/?kafe');
 }
 
 #card-cafe3 {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 60%), url(https://source.unsplash.com/random/?cafe,indonesia);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 60%), url('https://source.unsplash.com/random/?cafe');
 }
