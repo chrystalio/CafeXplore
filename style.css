@@ -56,3 +56,7 @@ body {
 #card-cafe3 {
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 60%), url('https://source.unsplash.com/random/?cafe');
 }
+
+.checked {
+    color: orange;
+}
