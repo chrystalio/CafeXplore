@@ -20,10 +20,6 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
-Route::get('/test', function () {
-    return view('home');
-});
-
-Route::post('/cafe', [CafeController::class, 'store'])->name('cafe.store');
-Route::get('/cafe', [CafeController::class, 'index'])->name('cafe.index');
+Route::get('/details', function (){
+    return view('details');
+})->name('details');
