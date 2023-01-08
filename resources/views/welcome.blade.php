@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>CafeXplore</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Palanquin:wght@400;500;600;700&display=swap"
@@ -162,7 +162,7 @@
         </footer>
     </div>
 </footer>
-<script src="js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 <script>
     const currentYear = new Date().getFullYear();
 </script>
