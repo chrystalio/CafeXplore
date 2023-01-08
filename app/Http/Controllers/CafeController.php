@@ -17,6 +17,20 @@ class CafeController extends Controller
         $this->ratingService = $ratingService;
     }
 
+    public function index(Request $request)
+    {
+        $cafes = Cafe::with(['rating']);
+        
+        if($request->has('search')){
+            $cafes->where('name', $request->search);
+        }   
+        
+        $cafes = $cafes->get();
+        $this->mappingCafe($cafes);
+        return view('welcome', compact('cafes'));
+
+    }
+
     public function store(StoreCafeRequest $request)
     {
         $times = explode('-', $request->times);
@@ -37,21 +51,6 @@ class CafeController extends Controller
         ]); 
 
         return redirect()->back();
-    }
-
-
-    public function index(Request $request)
-    {
-        $cafes = Cafe::with(['rating']);
-        
-        if($request->has('search')){
-            $cafes->where('name', $request->name);
-        }   
-        
-        $cafes = $cafes->get();
-        $this->mappingCafe($cafes);
-        return view('cafe.index', compact('cafes'));
-
     }
 
     public function CafeDetail(Cafe $cafe)

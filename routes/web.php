@@ -22,12 +22,9 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/details', function (){
-    return view('details');
-})->name('details');
-
 Route::get('/cafe', [CafeController::class, 'index'])->name('cafe.index');
 Route::post('/cafe', [CafeController::class, 'store'])->name('cafe.store');
+Route::get('/cafe/{cafe}', [CafeController::class, 'CafeDetail'])->name('details');
 Route::post('/rating/{cafe}', [RatingController::class, 'store'])->name('rating.store');
 
 
