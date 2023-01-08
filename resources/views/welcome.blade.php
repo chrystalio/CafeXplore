@@ -1,44 +1,6 @@
-<!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title>CafeXplore</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Palanquin:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
-</head>
-<body class="mx-lg-5 px-lg-5">
-<nav class="navbar navbar-expand-lg bg-transparent container">
-    <div class="container-fluid my-lg-2">
-        <a class="navbar-brand" href="#">
-            <b>CafeXplore</b>
-        </a>
-        <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
-                data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a aria-current="page" class="nav-link active" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Featured</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Location</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+@extends('layouts.app')
 
-<main>
-
+@section('content')
     <!--    <div class="container">-->
     <!--        <div class="px-4 py-5 my-5 text-center">-->
     <!--            <img class="d-block mx-auto mb-4" src="https://cdn-icons-png.flaticon.com/512/2935/2935413.png" alt="" width="72" height="72">-->
@@ -87,7 +49,7 @@
         <h2 class="pb-2 border-bottom" id="CafeFeatured">Find the Perfect Cafe</h2>
         <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
             <div class="col">
-                <a class="text-decoration-none" href="details.html">
+                <a class="text-decoration-none" href="{{ route('details') }}">
                     <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg border-0"
                          id="card-cafe">
                         <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
@@ -108,7 +70,7 @@
             </div>
 
             <div class="col">
-                <a class="text-decoration-none" href="details.html">
+                <a class="text-decoration-none" href="{{ route('details') }}">
                     <div class="card card-cover
                  ah-100 overflow-hidden text-bg-dark rounded-4 shadow-lg border-0" id="card-cafe2">
                         <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
@@ -128,7 +90,7 @@
                 </a>
             </div>
             <div class="col">
-                <a class="text-decoration-none" href="details.html">
+                <a class="text-decoration-none" href="{{ route('details') }}">
                     <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg border-0"
                          id="card-cafe3">
                         <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
@@ -149,22 +111,4 @@
             </div>
         </div>
     </div>
-</main>
-<footer class="py-4">
-    <div class="container">
-        <footer class="py-3 my-4">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a class="nav-link px-2 text-muted" href="#">Home</a></li>
-                <li class="nav-item"><a class="nav-link px-2 text-muted" href="#">Featured</a></li>
-                <li class="nav-item"><a class="nav-link px-2 text-muted" href="#">Location</a></li>
-            </ul>
-            <p class="text-center text-muted">Created with ❤️ By CafeXplore </p>
-        </footer>
-    </div>
-</footer>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script>
-    const currentYear = new Date().getFullYear();
-</script>
-</body>
-</html>
+@endsection
