@@ -1,13 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <!--    <div class="container">-->
-    <!--        <div class="px-4 py-5 my-5 text-center">-->
-    <!--            <img class="d-block mx-auto mb-4" src="https://cdn-icons-png.flaticon.com/512/2935/2935413.png" alt="" width="72" height="72">-->
-    <!--            <h1 class="display-5 fw-bold">Welcome to CafeXplore</h1>-->
-    <!--        </div>-->
-    <!--    </div>-->
-
     <div class="container col-md-12 px-2 py-4 ">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="col-10 col-sm-12 col-lg-6">
@@ -28,23 +21,6 @@
             </div>
         </div>
     </div>
-
-    <!--    <div class="container px-4 py-5 mt-5">-->
-    <!--        <h2 class="pb-2 border-bottom">Discover the Best Cafes with Us!</h2>-->
-    <!--        <div class="row row-cols-1 row-cols-md-7 align-items-md-center g-5 py-5">-->
-    <!--            <div class="d-flex flex-column align-items-start gap-2">-->
-    <!--                <h2 class="fw-bold"></h2>-->
-    <!--                <h5>-->
-    <!--                    Our website is the place to go for finding the best cafes in Batam. We've got-->
-    <!--                    reviews and ratings for all kinds of cafes, so you can easily find the perfect spot for coffee,-->
-    <!--                    food, or a quick snack.-->
-    <!--                    <br><br>-->
-    <!--                    Use our website to search for cafes by location or type, and check out our featured section for the-->
-    <!--                    top picks. It's easy to use and navigate, so you can find what you need fast.-->
-    <!--                </h5>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
     <div class="container px-2 py-3" id="custom-cards">
         <h2 class="pb-2 border-bottom" id="CafeFeatured">Find the Perfect Cafe</h2>
         <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
@@ -109,6 +85,53 @@
                     </div>
                 </a>
             </div>
+            <div class="container text-center mt-5 pt-4">
+                <p>Don't see your favorite café on the list? Submit one!</p>
+                <button type="button" class="btn btn-danger btn-sm"  data-bs-toggle="modal" data-bs-target="#exampleModal">Submit a Cafe</button>
+            </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable  ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-center" id="exampleModalLabel">Submit Cafe</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/cafe" method="post">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="cafe_name" class="form-label">Cafe Name</label>
+                                    <input type="text" class="form-control" id="cafe_name" name="cafe_name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="city_name" class="form-label">City</label>
+                                    <input type="text" class="form-control" id="city_name" aria-describedby="city_name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="link" class="form-label">Instagram/Maps link</label>
+                                    <input type="url" class="form-control" id="link">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="numberphone" class="form-label">Phone</label>
+                                    <input type="tel" class="form-control" id="numberphone">
+                                </div>
+{{--                                <div class="mb-3">--}}
+{{--                                    @for($i = 0; $i < 7; $i++)--}}
+{{--                                        <input type="text" name="time[]">--}}
+{{--                                    @endfor--}}
+{{--                                </div>--}}
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success" >Save changes</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 @endsection
