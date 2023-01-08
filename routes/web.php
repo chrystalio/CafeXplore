@@ -23,3 +23,5 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/details', function (){
     return view('details');
 })->name('details');
+
+Route::post('/cafe', [CafeController::class, 'store'])->name('cafe.store');
