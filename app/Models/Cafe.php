@@ -17,14 +17,12 @@ class Cafe extends Model
         'address',
         'phone',
         'website',
-        'image',
-        'about'
+        'social_media',
+        'from',
+        'till',
+        'open',
+        'close',
     ];
-
-    public function schedule()
-    {
-        return $this->hasMany(CafeSchedule::class);
-    }
 
     public function rating()
     {
