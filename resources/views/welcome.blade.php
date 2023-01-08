@@ -9,10 +9,10 @@
                      width="550">
             </div>
             <div class="col-lg-6">
-                <h1 class="display-5 fw-bold lh-1 mb-3">Discover the Best Cafes with Us!
+                <h1 class="display-5 fw-bold lh-1 mb-3">Discover the Best Cafés with Us!
                 </h1>
                 <p class="lead">Our website is the place to go for finding the best cafes in Batam. We've got reviews
-                    and ratings for all kinds of cafes, so you can easily find the perfect spot for coffee, food, or a
+                    and ratings for all kinds of cafés, so you can easily find the perfect spot for coffee, food, or a
                     quick snack.</p>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
@@ -87,26 +87,37 @@
             </div>
             <div class="container text-center mt-5 pt-4">
                 <p>Don't see your favorite café on the list? Submit one!</p>
-                <button type="button" class="btn btn-danger btn-sm"  data-bs-toggle="modal" data-bs-target="#exampleModal">Submit a Cafe</button>
+                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Submit a Cafe
+                </button>
             </div>
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable  ">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title text-center" id="exampleModalLabel">Submit Cafe</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <form action="/cafe" method="post">
+                        <form action="/cafe" method="post">
+                            <div class="modal-body">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="cafe_name" class="form-label">Cafe Name</label>
                                     <input type="text" class="form-control" id="cafe_name" name="cafe_name">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="city_name" class="form-label">City</label>
-                                    <input type="text" class="form-control" id="city_name" aria-describedby="city_name">
+                                    <div class="row">
+                                        <div class="col">
+                                                <label for="city_name" class="form-label">City</label>
+                                                <input type="text" class="form-control" id="city_name" aria-describedby="city_name">
+                                        </div>
+                                        <div class="col">
+                                            <label for="address" class="form-label">Address</label>
+                                            <input type="text" name="address" class="form-control" id="address">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="link" class="form-label">Instagram/Maps link</label>
@@ -115,18 +126,53 @@
                                 <div class="mb-3">
                                     <label for="numberphone" class="form-label">Phone</label>
                                     <input type="tel" class="form-control" id="numberphone">
+                                    <div id="numberphone" class="form-text text-muted text-sm-start">
+                                        Optional
+                                    </div>
                                 </div>
-{{--                                <div class="mb-3">--}}
-{{--                                    @for($i = 0; $i < 7; $i++)--}}
-{{--                                        <input type="text" name="time[]">--}}
-{{--                                    @endfor--}}
-{{--                                </div>--}}
+                                <div class="mb-3">
+                                    <label for="website" class="form-label">Website</label>
+                                    <input type="url" class="form-control" id="website">
+                                    <div id="website" class="form-text text-muted">Optional
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="#timerange">Schedule</label>
+                                    <div class="row">
+                                        <div class="col mt-2">
+                                            <select class="form-control" id="from_date">
+                                                <option value="0">Monday</option>
+                                                <option value="1">Tuesday</option>
+                                                <option value="2">Wednesday</option>
+                                                <option value="3">Thursday</option>
+                                                <option value="4">Friday</option>
+                                                <option value="5">Saturday</option>
+                                                <option value="6">Sunday</option>
+                                            </select>
+                                        </div>
+                                        <div class="col mt-2">
+                                            <input type="text" class="timepicker form-control" name="time[]">
+                                        </div>
+                                    </div>
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-success" >Save changes</button>
-                        </div>
+
+                                    <select class="d-none">
+                                        <option value="0">Monday</option>
+                                        <option value="1">Tuesday</option>
+                                        <option value="2">Wednesday</option>
+                                        <option value="3">Thursday</option>
+                                        <option value="4">Friday</option>
+                                        <option value="5">Saturday</option>
+                                        <option value="6">Sunday</option>
+                                    </select>
+
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-success">Save changes</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -134,4 +180,23 @@
 
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        $(function() {
+            $('.timepicker').daterangepicker({
+                timePicker : true,
+                timePicker24Hour : true,
+                timePickerIncrement : 1,
+                timePickerSeconds : true,
+                locale : {
+                    format : 'HH:mm:ss'
+                }
+            }).on('show.daterangepicker', function(ev, picker) {
+                picker.container.find(".calendar-table").hide();
+            });
+        })
+
+    </script>
 @endsection
