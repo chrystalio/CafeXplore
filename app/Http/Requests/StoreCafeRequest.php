@@ -27,11 +27,11 @@ class StoreCafeRequest extends FormRequest
             'name' => 'required|string',
             'address' => 'required',
             'city' => 'required|string',
-            'phone' => 'required|numberic',
-            'from' => 'required|string',
-            'till' => 'required|string',
+            'phone' => 'required|integer',
+            'from' => 'required|integer|digits_between:0,6',
+            'till' => 'required|integer|digits_between:0,6',
             'times' => 'required',
-            'social_media' => 'required|string'
+            'url' => 'required|string'
         ];
     }
 }
