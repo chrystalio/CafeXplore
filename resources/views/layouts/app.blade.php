@@ -20,6 +20,8 @@
     {{-- Datatable --}}
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
 
+    @yield('styles')
+
 </head>
 <body class="mx-lg-5 px-lg-5">
     

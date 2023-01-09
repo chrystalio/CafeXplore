@@ -24,12 +24,13 @@
     <div class="container px-2 py-3" id="custom-cards">
         <h2 class="pb-2 border-bottom" id="CafeFeatured">Find the Perfect Cafe</h2>
         <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+            @foreach($cafes as $cafe)
             <div class="col">
-                <a class="text-decoration-none" href="#">
+                <a class="text-decoration-none" href="{{ route('details', $cafe->id) }}">
                     <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg border-0"
                          id="card-cafe">
                         <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Solusi Cafe</h3>
+                            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ $cafe->name }}</h3>
                             <ul class="d-flex list-unstyled mt-auto">
                                 <li class="me-auto">
                                     <img class="rounded-circle border border-white" height="32"
@@ -37,81 +38,47 @@
                                          width="32">
                                 </li>
                                 <li class="d-flex align-items-center">
-                                    <small class="fw-bold shadow-sm">Batam Center</small>
+                                    <small class="fw-bold shadow-sm">{{ $cafe->address }}</small>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </a>
             </div>
+            @endforeach
 
-            <div class="col">
-                <a class="text-decoration-none" href="#">
-                    <div class="card card-cover
-                 ah-100 overflow-hidden text-bg-dark rounded-4 shadow-lg border-0" id="card-cafe2">
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Espresso Yourself</h3>
-                            <ul class="d-flex list-unstyled mt-auto">
-                                <li class="me-auto">
-                                    <img class="rounded-circle border border-white" height="32"
-                                         src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
-                                         width="32">
-                                </li>
-                                <li class="d-flex align-items-center me-3">
-                                    <small class="fw-bold shadow-sm">Batu Aji</small>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col">
-                <a class="text-decoration-none" href="#">
-                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg border-0"
-                         id="card-cafe3">
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-                            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Brew-tique</h3>
-                            <ul class="d-flex list-unstyled mt-auto">
-                                <li class="me-auto">
-                                    <img class="rounded-circle border border-white" height="32"
-                                         src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
-                                         width="32">
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <small class="fw-bold shadow-sm">Bengkong Laut</small>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </a>
-            </div>
+           
             <div class="container text-center mt-5 pt-4">
                 <p>Don't see your favorite café on the list? Submit one!</p>
                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">Submit a Cafe
                 </button>
             </div>
-
+            {{--  
+                
+                buat modal nya bisa di scroll, kalau layar nya kecil form nya ketutupan di bawah    
+                
+            --}}
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                 aria-hidden="true">
+                 aria-hidden="true"> 
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable  ">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title text-center" id="exampleModalLabel">Submit Cafe</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form action="/cafe" method="post">
+                        <form action="{{ route('cafe.store') }}" method="post">
                             <div class="modal-body">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="cafe_name" class="form-label">Cafe Name</label>
-                                    <input type="text" class="form-control" id="cafe_name" name="cafe_name">
+                                    <input type="text" class="form-control" id="cafe_name" name="name">
                                 </div>
                                 <div class="mb-3">
                                     <div class="row">
                                         <div class="col">
-                                                <label for="city_name" class="form-label">City</label>
-                                                <input type="text" class="form-control" id="city_name" aria-describedby="city_name">
+                                            <label for="city_name" class="form-label">City</label>
+                                            <input type="text"  name="city" id="city" class="form-control">
                                         </div>
                                         <div class="col">
                                             <label for="address" class="form-label">Address</label>
@@ -121,26 +88,38 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="link" class="form-label">Instagram/Maps link</label>
-                                    <input type="url" class="form-control" id="link">
+                                    <input type="url" class="form-control" id="link" name="url">
                                 </div>
                                 <div class="mb-3">
                                     <label for="numberphone" class="form-label">Phone</label>
-                                    <input type="tel" class="form-control" id="numberphone">
+                                    <input type="tel" class="form-control" name="phone" id="numberphone">
                                     <div id="numberphone" class="form-text text-muted text-sm-start">
                                         Optional
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="website" class="form-label">Website</label>
-                                    <input type="url" class="form-control" id="website">
+                                    <input type="url" class="form-control" id="website" name="website">
                                     <div id="website" class="form-text text-muted">Optional
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="#timerange">Schedule</label>
                                     <div class="row">
-                                        <div class="col mt-2">
-                                            <select class="form-control" id="from_date">
+                                        <div class="col-md-6 mt-2">
+                                            <select class="form-control" name="from" id="from_date">
+                                                <option value="0">Monday</option>
+                                                <option value="1">Tuesday</option>
+                                                <option value="2">Wednesday</option>
+                                                <option value="3">Thursday</option>
+                                                <option value="4">Friday</option>
+                                                <option value="5">Saturday</option>
+                                                <option value="6">Sunday</option>
+                                            </select>
+                                            
+                                        </div>
+                                        <div class="col-md-6">
+                                            <select class="form-control" name="till" id="till_date">
                                                 <option value="0">Monday</option>
                                                 <option value="1">Tuesday</option>
                                                 <option value="2">Wednesday</option>
@@ -150,21 +129,14 @@
                                                 <option value="6">Sunday</option>
                                             </select>
                                         </div>
-                                        <div class="col mt-2">
-                                            <input type="text" class="timepicker form-control" name="time[]">
-                                        </div>
+                                      
+                                    </div>
+                                    <div class="col mt-2">
+                                        <input type="text" class="timepicker form-control" name="times">
                                     </div>
 
 
-                                    <select class="d-none">
-                                        <option value="0">Monday</option>
-                                        <option value="1">Tuesday</option>
-                                        <option value="2">Wednesday</option>
-                                        <option value="3">Thursday</option>
-                                        <option value="4">Friday</option>
-                                        <option value="5">Saturday</option>
-                                        <option value="6">Sunday</option>
-                                    </select>
+                             
 
 
                                 </div>
@@ -189,7 +161,6 @@
                 timePicker : true,
                 timePicker24Hour : true,
                 timePickerIncrement : 1,
-                timePickerSeconds : true,
                 locale : {
                     format : 'HH:mm:ss'
                 }

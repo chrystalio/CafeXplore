@@ -36,16 +36,16 @@ class CafeController extends Controller
         $times = explode('-', $request->times);
         $open = $times[0];
         $close = $times[1];
-
+        $days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
         Cafe::create([
             'name' => $request->name,
             'address' => $request->address,
             'city' => $request->city,
             'phone' => $request->phone,
-            'social_media' => $request->social_media,
+            'social_media' => $request->url,
             'website' => $request->website ?? null,
-            'from'  => $request->from,
-            'till' => $request->till,
+            'from'  => $days[$request->from],
+            'till' => $days[$request->till],
             'open' => $open,
             'close' => $close
         ]); 
@@ -56,9 +56,9 @@ class CafeController extends Controller
     public function CafeDetail(Cafe $cafe)
     {
         $cafe->load(['rating']);
-        $this->mappingCafe($cafe);
+        $cafe->averageRating = $this->ratingService->getAverageRating($cafe);
 
-        return view('cafe.detail', compact('cafe'));
+        return view('details', compact('cafe'));
     }
 
     private function mappingCafe($cafe)
