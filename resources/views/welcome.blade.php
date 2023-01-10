@@ -3,10 +3,16 @@
 @section('content')
     <div class="container col-md-12 px-2 py-4 ">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-            <div class="col-10 col-sm-12 col-lg-6">
-                <img alt="Hero" class="d-block mx-lg-auto img-fluid"
-                     height="550" loading="lazy" src="https://cdn-icons-png.flaticon.com/512/4171/4171640.png"
-                     width="550">
+            <div class="col-lg-6">
+                <img src="https://source.unsplash.com/random/650x400/?coffeeshop" class="d-block mx-lg-auto img-fluid rounded-3" alt="Bootstrap Themes" width="700" height="300" loading="lazy">
+                <div class="d-flex">
+                    <div class="col-lg-6 my-3">
+                        <img src="https://source.unsplash.com/random/650x400/?kopi" class="d-block mx-lg-auto img-fluid rounded-3" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                    </div>
+                    <div class="col-lg-6 my-3 mx-2">
+                        <img src="https://source.unsplash.com/random/650x400/?cafe" class="d-block mx-lg-auto img-fluid rounded-3" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                    </div>
+                </div>
             </div>
             <div class="col-lg-6">
                 <h1 class="display-5 fw-bold lh-1 mb-3">Discover the Best Cafés with Us!
@@ -47,20 +53,20 @@
             </div>
             @endforeach
 
-           
+
             <div class="container text-center mt-5 pt-4">
                 <p>Don't see your favorite café on the list? Submit one!</p>
                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">Submit a Cafe
                 </button>
             </div>
-            {{--  
-                
-                buat modal nya bisa di scroll, kalau layar nya kecil form nya ketutupan di bawah    
-                
+            {{--
+
+                buat modal nya bisa di scroll, kalau layar nya kecil form nya ketutupan di bawah
+
             --}}
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                 aria-hidden="true"> 
+                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable  ">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -116,7 +122,7 @@
                                                 <option value="5">Saturday</option>
                                                 <option value="6">Sunday</option>
                                             </select>
-                                            
+
                                         </div>
                                         <div class="col-md-6">
                                             <select class="form-control" name="till" id="till_date">
@@ -129,14 +135,14 @@
                                                 <option value="6">Sunday</option>
                                             </select>
                                         </div>
-                                      
+
                                     </div>
                                     <div class="col mt-2">
                                         <input type="text" class="timepicker form-control" name="times">
                                     </div>
 
 
-                             
+
 
 
                                 </div>
