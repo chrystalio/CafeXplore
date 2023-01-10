@@ -39,20 +39,24 @@
     </div>
     <div class="container px-2 py-3">
         <h2 class="pb-2 border-bottom" id="CafeFeatured">Find the Perfect Cafe</h2>
-        <div>
+        <div class="container">
+                <div class="row align-content-center">
             @foreach($cafes as $cafe)
-                <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-                    <div class="col d-flex align-items-start">
-                        <div class="d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-                            <i class="las la-mug-hot"></i>
+                    <div class="col-3 card my-2 mx-1">
+                        <a href="{{ route('details', $cafe->id) }}" class="text-decoration-none text-dark">
+                            <div class="card-body">
+                                <div class="d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                                    <i class="las la-mug-hot"></i>
+                                </div>
+                                <div>
+                                    <h5>{{ $cafe->name }}</h5>
+                                    <p>Location : {{ $cafe->address }}  </p>
+                            </div>
                         </div>
-                        <div>
-                            <h5>{{ $cafe->name }}</h5>
-                            <p>Location : {{ $cafe->address }}  </p>
-                        </div>
+                        </a>
                     </div>
-                </div>
             @endforeach
+                </div>
             <div class="container text-center mt-5 pt-4">
                 <p>Don't see your favorite café on the list? Submit one!</p>
                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
@@ -139,97 +143,14 @@
                         </div>
                     </div>
                 </div>
-                {{--                    <div class="modal-dialog">--}}
-                {{--                        <div class="modal-content">--}}
-                {{--                            <div class="modal-header">--}}
-                {{--                                <h5 class="modal-title text-center" id="exampleModalLabel">Submit Cafe</h5>--}}
-                {{--                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--}}
-                {{--                            </div>--}}
-                {{--                            <form action="{{ route('cafe.store') }}" method="post">--}}
-                {{--                                <div class="modal-body">--}}
-                {{--                                    @csrf--}}
-                {{--                                    <div class="mb-3">--}}
-                {{--                                        <label for="cafe_name" class="form-label">Cafe Name</label>--}}
-                {{--                                        <input type="text" class="form-control" id="cafe_name" name="name">--}}
-                {{--                                    </div>--}}
-                {{--                                    <div class="mb-3">--}}
-                {{--                                        <div class="row">--}}
-                {{--                                            <div class="col">--}}
-                {{--                                                <label for="city_name" class="form-label">City</label>--}}
-                {{--                                                <input type="text"  name="city" id="city" class="form-control">--}}
-                {{--                                            </div>--}}
-                {{--                                            <div class="col">--}}
-                {{--                                                <label for="address" class="form-label">Address</label>--}}
-                {{--                                                <input type="text" name="address" class="form-control" id="address">--}}
-                {{--                                            </div>--}}
-                {{--                                        </div>--}}
-                {{--                                    </div>--}}
-                {{--                                    <div class="mb-3">--}}
-                {{--                                                        <label for="link" class="form-label">Instagram/Maps link</label>--}}
-                {{--                                                        <input type="url" class="form-control" id="link" name="url">--}}
-                {{--                                    </div>--}}
-                {{--                                    <div class="mb-3">--}}
-                {{--                                        <label for="numberphone" class="form-label">Phone</label>--}}
-                {{--                                        <input type="tel" class="form-control" name="phone" id="numberphone">--}}
-                {{--                                        <div id="numberphone" class="form-text text-muted text-sm-start">--}}
-                {{--                                            Optional--}}
-                {{--                                        </div>--}}
-                {{--                                    </div>--}}
-                {{--                                    <div class="mb-3">--}}
-                {{--                                        <label for="website" class="form-label">Website</label>--}}
-                {{--                                        <input type="url" class="form-control" id="website" name="website">--}}
-                {{--                                        <div id="website" class="form-text text-muted">Optional--}}
-                {{--                                        </div>--}}
-                {{--                                    </div>--}}
-                {{--                                    <div class="mb-3">--}}
-                {{--                                        <label for="#timerange">Schedule</label>--}}
-                {{--                                        <div class="row">--}}
-                {{--                                            <div class="col-md-6 mt-2">--}}
-                {{--                                                <select class="form-control" name="from" id="from_date">--}}
-                {{--                                                    <option value="0">Monday</option>--}}
-                {{--                                                    <option value="1">Tuesday</option>--}}
-                {{--                                                    <option value="2">Wednesday</option>--}}
-                {{--                                                    <option value="3">Thursday</option>--}}
-                {{--                                                    <option value="4">Friday</option>--}}
-                {{--                                                    <option value="5">Saturday</option>--}}
-                {{--                                                    <option value="6">Sunday</option>--}}
-                {{--                                                </select>--}}
-
-                {{--                                            </div>--}}
-                {{--                                            <div class="col-md-6">--}}
-                {{--                                                <select class="form-control" name="till" id="till_date">--}}
-                {{--                                                    <option value="0">Monday</option>--}}
-                {{--                                                    <option value="1">Tuesday</option>--}}
-                {{--                                                    <option value="2">Wednesday</option>--}}
-                {{--                                                    <option value="3">Thursday</option>--}}
-                {{--                                                    <option value="4">Friday</option>--}}
-                {{--                                                    <option value="5">Saturday</option>--}}
-                {{--                                                    <option value="6">Sunday</option>--}}
-                {{--                                                </select>--}}
-                {{--                                            </div>--}}
-
-                {{--                                        </div>--}}
-                {{--                                        <div class="col mt-2">--}}
-                {{--                                            <input type="text" class="timepicker form-control" name="times">--}}
-                {{--                                        </div>--}}
-                {{--                                    </div>--}}
-                {{--                                </div>--}}
-                {{--                                <div class="modal-footer">--}}
-                {{--                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>--}}
-                {{--                                    <button type="submit" class="btn btn-success">Save changes</button>--}}
-                {{--                                </div>--}}
-                {{--                            </form>--}}
-                {{--                        </div>--}}
-                {{--                    </div>--}}
-            </div>
-        </div>
     </div>
     {{--        <div class="container px-2 py-3" id="custom-cards">--}}
     {{--            <h2 class="pb-2 border-bottom" id="CafeFeatured">Find the Perfect Cafe</h2>--}}
     {{--            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">--}}
     {{--                @foreach($cafes as $cafe)--}}
     {{--                <div class="col">--}}
-    {{--                    <a class="text-decoration-none" href="{{ route('details', $cafe->id) }}">--}}
+    {{--                    <a class="text-decoration-none" href="{{ route('details', $cafe->id) "></i>
+                            </div>}}">--}}
     {{--                        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg border-0"--}}
     {{--                             id="card-cafe">--}}
     {{--                            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">--}}
