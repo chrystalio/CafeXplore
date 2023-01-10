@@ -2,15 +2,18 @@
 
 @section('content')
     <div class="container col-md-12 px-2 py-4 ">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="row flex-lg-row-reverse align-items-center py-5">
             <div class="col-lg-6">
-                <img src="https://source.unsplash.com/random/650x400/?coffeeshop" class="d-block mx-lg-auto img-fluid rounded-3" alt="Bootstrap Themes" width="700" height="300" loading="lazy">
-                <div class="d-flex">
-                    <div class="col-lg-6 my-3">
-                        <img src="https://source.unsplash.com/random/650x400/?kopi" class="d-block mx-lg-auto img-fluid rounded-3" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                <img src="https://source.unsplash.com/random/850x450/?coffeeshop" class="d-block mx-lg-auto img-fluid rounded-3 w-auto" alt="Bootstrap Themes" loading="lazy">
+                <div class="d-flex align-content-between gap-2">
+                    <div class="col-lg-4 my-3">
+                        <img src="https://source.unsplash.com/random/650x350/?kopi" class="d-block mx-lg-auto img-fluid rounded-3" alt="Bootstrap Themes" width="300" height="500" loading="lazy">
                     </div>
-                    <div class="col-lg-6 my-3 mx-2">
-                        <img src="https://source.unsplash.com/random/650x400/?cafe" class="d-block mx-lg-auto img-fluid rounded-3" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                    <div class="col-lg-4 my-3">
+                        <img src="https://source.unsplash.com/random/650x350/?cafe" class="d-block mx-lg-auto img-fluid rounded-3" alt="Bootstrap Themes" width="300" height="500" loading="lazy">
+                    </div>
+                    <div class="col-lg-4 my-3">
+                        <img src="https://source.unsplash.com/random/650x350/?kafe" class="d-block mx-lg-auto img-fluid rounded-3" alt="Bootstrap Themes" width="300" height="500" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -52,22 +55,15 @@
                 </a>
             </div>
             @endforeach
-
-
             <div class="container text-center mt-5 pt-4">
                 <p>Don't see your favorite café on the list? Submit one!</p>
                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">Submit a Cafe
                 </button>
             </div>
-            {{--
-
-                buat modal nya bisa di scroll, kalau layar nya kecil form nya ketutupan di bawah
-
-            --}}
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable  ">
+                <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title text-center" id="exampleModalLabel">Submit Cafe</h5>
@@ -140,11 +136,6 @@
                                     <div class="col mt-2">
                                         <input type="text" class="timepicker form-control" name="times">
                                     </div>
-
-
-
-
-
                                 </div>
                             </div>
                             <div class="modal-footer">
