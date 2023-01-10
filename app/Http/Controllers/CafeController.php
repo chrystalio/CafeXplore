@@ -20,11 +20,11 @@ class CafeController extends Controller
     public function index(Request $request)
     {
         $cafes = Cafe::with(['rating']);
-        
+
         if($request->has('search')){
             $cafes->where('name', $request->search);
-        }   
-        
+        }
+
         $cafes = $cafes->get();
         $this->mappingCafe($cafes);
         return view('welcome', compact('cafes'));
@@ -36,7 +36,7 @@ class CafeController extends Controller
         $times = explode('-', $request->times);
         $open = $times[0];
         $close = $times[1];
-        $days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+        $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
         Cafe::create([
             'name' => $request->name,
             'address' => $request->address,
@@ -48,7 +48,7 @@ class CafeController extends Controller
             'till' => $days[$request->till],
             'open' => $open,
             'close' => $close
-        ]); 
+        ]);
 
         return redirect()->back();
     }
