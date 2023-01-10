@@ -25,13 +25,13 @@ class StoreCafeRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'address' => 'required',
             'city' => 'required|string',
+            'address' => 'required',
+            'url' => 'required',
             'phone' => 'required|integer',
             'from' => 'required|integer|digits_between:0,6',
             'till' => 'required|integer|digits_between:0,6',
             'times' => 'required',
-            'url' => 'required|string'
         ];
     }
 }

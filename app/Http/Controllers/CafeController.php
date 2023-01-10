@@ -39,10 +39,10 @@ class CafeController extends Controller
         $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
         Cafe::create([
             'name' => $request->name,
-            'address' => $request->address,
             'city' => $request->city,
-            'phone' => $request->phone,
+            'address' => $request->address,
             'social_media' => $request->url,
+            'phone' => $request->phone,
             'website' => $request->website ?? null,
             'from'  => $days[$request->from],
             'till' => $days[$request->till],

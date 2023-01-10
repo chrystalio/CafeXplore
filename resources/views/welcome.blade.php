@@ -74,7 +74,7 @@
                                 @csrf
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control rounded-3" id="floatingInput"
-                                           name="cafe_name" placeholder="Name">
+                                           name="name" placeholder="Name">
                                     <label for="floatingInput">Cafe Name</label>
                                 </div>
                                 <div class="form-floating mb-3">
