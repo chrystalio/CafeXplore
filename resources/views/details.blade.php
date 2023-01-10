@@ -95,19 +95,13 @@
         </div>
 
         <div class="container px-2 py-3">
-            <h2 class="pb-2 border-bottom" id="CafeFeatured">Submit a Rating</h2>
-
-
+            <h2 class="pb-2 border-bottom" id="CafeFeatured">Rate This Cafe</h2>
             <div class="container px-2 py-3">
-                <p>Rate This Cafe</p>
                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">Submit a Rating
                 </button>
             </div>
-
-
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                 aria-hidden="true">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -132,11 +126,8 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleFormControlTextarea1" class="form-label">Review</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                              name="comment"></textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment"></textarea>
                                 </div>
-
-
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -146,7 +137,6 @@
                     </div>
                 </div>
             </div>
-
             @foreach($cafe->rating as $rat)
                 <div class="card my-3">
                     <div class="card-body">
