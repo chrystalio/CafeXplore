@@ -40,23 +40,20 @@
     <div class="container px-2 py-3">
         <h2 class="pb-2 border-bottom" id="CafeFeatured">Find the Perfect Cafe</h2>
         <div class="container">
-                <div class="row align-content-center">
-            @foreach($cafes as $cafe)
-                    <div class="col-3 card my-2 mx-1">
-                        <a href="{{ route('details', $cafe->id) }}" class="text-decoration-none text-dark">
+            <div class="row align-content-center">
+                @foreach($cafes as $cafe)
+                    <div class="col-md-12 card mx-2" style="width: 18rem;">
+                        <a href="{{ route('details', $cafe->id) }}" class="text-decoration-none text-dark" class="text-decoration-none">
+                            <img src="https://source.unsplash.com/random/650x350/?kafe" class="card-img-top img-fluid" alt="...">
                             <div class="card-body">
-                                <div class="d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-                                    <i class="las la-mug-hot"></i>
-                                </div>
-                                <div>
-                                    <h5>{{ $cafe->name }}</h5>
-                                    <p>Location : {{ $cafe->address }}  </p>
+                                <h5>{{ $cafe->name }}</h5>
+                                <p>Location : {{ $cafe->address }}  </p>
                             </div>
-                        </div>
                         </a>
                     </div>
-            @endforeach
-                </div>
+
+                @endforeach
+            </div>
             <div class="container text-center mt-5 pt-4">
                 <p>Don't see your favorite café on the list? Submit one!</p>
                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
@@ -143,53 +140,53 @@
                         </div>
                     </div>
                 </div>
-    </div>
-    {{--        <div class="container px-2 py-3" id="custom-cards">--}}
-    {{--            <h2 class="pb-2 border-bottom" id="CafeFeatured">Find the Perfect Cafe</h2>--}}
-    {{--            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">--}}
-    {{--                @foreach($cafes as $cafe)--}}
-    {{--                <div class="col">--}}
-    {{--                    <a class="text-decoration-none" href="{{ route('details', $cafe->id) "></i>
-                            </div>}}">--}}
-    {{--                        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg border-0"--}}
-    {{--                             id="card-cafe">--}}
-    {{--                            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">--}}
-    {{--                                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ $cafe->name }}</h3>--}}
-    {{--                                <ul class="d-flex list-unstyled mt-auto">--}}
-    {{--                                    <li class="me-auto">--}}
-    {{--                                        <img class="rounded-circle border border-white" height="32"--}}
-    {{--                                             src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"--}}
-    {{--                                             width="32">--}}
-    {{--                                    </li>--}}
-    {{--                                    <li class="d-flex align-items-center">--}}
-    {{--                                        <small class="fw-bold shadow-sm">{{ $cafe->address }}</small>--}}
-    {{--                                    </li>--}}
-    {{--                                </ul>--}}
-    {{--                            </div>--}}
-    {{--                        </div>--}}
-    {{--                    </a>--}}
-    {{--                </div>--}}
-    {{--                @endforeach--}}
-    {{--                --}}
+            </div>
+            {{--        <div class="container px-2 py-3" id="custom-cards">--}}
+            {{--            <h2 class="pb-2 border-bottom" id="CafeFeatured">Find the Perfect Cafe</h2>--}}
+            {{--            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">--}}
+            {{--                @foreach($cafes as $cafe)--}}
+            {{--                <div class="col">--}}
+            {{--                    <a class="text-decoration-none" href="{{ route('details', $cafe->id) "></i>
+                                    </div>}}">--}}
+            {{--                        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg border-0"--}}
+            {{--                             id="card-cafe">--}}
+            {{--                            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">--}}
+            {{--                                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ $cafe->name }}</h3>--}}
+            {{--                                <ul class="d-flex list-unstyled mt-auto">--}}
+            {{--                                    <li class="me-auto">--}}
+            {{--                                        <img class="rounded-circle border border-white" height="32"--}}
+            {{--                                             src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"--}}
+            {{--                                             width="32">--}}
+            {{--                                    </li>--}}
+            {{--                                    <li class="d-flex align-items-center">--}}
+            {{--                                        <small class="fw-bold shadow-sm">{{ $cafe->address }}</small>--}}
+            {{--                                    </li>--}}
+            {{--                                </ul>--}}
+            {{--                            </div>--}}
+            {{--                        </div>--}}
+            {{--                    </a>--}}
+            {{--                </div>--}}
+            {{--                @endforeach--}}
+            {{--                --}}
 
-    {{--            </div>--}}
-    {{--        </div>--}}
-@endsection
+            {{--            </div>--}}
+            {{--        </div>--}}
+            @endsection
 
-@section('scripts')
-    <script>
-        $(function () {
-            $('.timepicker').daterangepicker({
-                timePicker: true,
-                timePicker24Hour: true,
-                timePickerIncrement: 1,
-                locale: {
-                    format: 'HH:mm:ss'
-                }
-            }).on('show.daterangepicker', function (ev, picker) {
-                picker.container.find(".calendar-table").hide();
-            });
-        })
+            @section('scripts')
+                <script>
+                    $(function () {
+                        $('.timepicker').daterangepicker({
+                            timePicker: true,
+                            timePicker24Hour: true,
+                            timePickerIncrement: 1,
+                            locale: {
+                                format: 'HH:mm:ss'
+                            }
+                        }).on('show.daterangepicker', function (ev, picker) {
+                            picker.container.find(".calendar-table").hide();
+                        });
+                    })
 
-    </script>
+                </script>
 @endsection
